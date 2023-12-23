@@ -95,7 +95,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 50px;
+      margin-bottom: 5px;
+      h1 {
+        font-size: 60px;
+        margin-bottom: 0;
+      }
     }
   }
 }

@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import { getImageUrl } from "../utils/utils";
+</script>
 
 <template>
   <div class="get-started">
@@ -11,7 +13,7 @@
       <button>Get Started</button>
     </div>
 
-    <img src="../assets/img/img1.svg" alt="girl thinking" />
+    <img :src="getImageUrl('img/img1.svg')" alt="girl thinking" />
   </div>
 </template>
 

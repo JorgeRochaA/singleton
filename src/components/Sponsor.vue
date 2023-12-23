@@ -1,27 +1,41 @@
 <script setup>
-import { ref, watchEffect } from "vue";
-
 const sponsors = [
   {
-    src: "img/microsoft.svg",
+    src: "img/sponsors/microsoft.svg",
     alt: "microsoft",
     url: "https://www.microsoft.com/",
   },
-  { src: "img/uber.svg", alt: "uber", url: "https://www.uber.com/" },
-  { src: "img/stripe.svg", alt: "stripe", url: "https://www.stripe.com/" },
-  { src: "img/nike.svg", alt: "nike", url: "https://www.nike.com/" },
-  { src: "img/airbnb.svg", alt: "airbnb", url: "https://www.airbnb.com/" },
-  { src: "img/tesla.svg", alt: "tesla", url: "https://www.tesla.com/" },
-  { src: "img/meta.svg", alt: "meta", url: "https://about.meta.com/" },
-  { src: "img/nasa.svg", alt: "nasa", url: "https://www.nasa.gov/" },
-  { src: "img/netflix.svg", alt: "netflix", url: "https://www.netflix.com/" },
-  { src: "img/dji.svg", alt: "dji", url: "https://www.dji.com/" },
+  { src: "img/sponsors/uber.svg", alt: "uber", url: "https://www.uber.com/" },
   {
-    src: "img/thenorthface.svg",
+    src: "img/sponsors/stripe.svg",
+    alt: "stripe",
+    url: "https://www.stripe.com/",
+  },
+  { src: "img/sponsors/nike.svg", alt: "nike", url: "https://www.nike.com/" },
+  {
+    src: "img/sponsors/airbnb.svg",
+    alt: "airbnb",
+    url: "https://www.airbnb.com/",
+  },
+  {
+    src: "img/sponsors/tesla.svg",
+    alt: "tesla",
+    url: "https://www.tesla.com/",
+  },
+  { src: "img/sponsors/meta.svg", alt: "meta", url: "https://about.meta.com/" },
+  { src: "img/sponsors/nasa.svg", alt: "nasa", url: "https://www.nasa.gov/" },
+  {
+    src: "img/sponsors/netflix.svg",
+    alt: "netflix",
+    url: "https://www.netflix.com/",
+  },
+  { src: "img/sponsors/dji.svg", alt: "dji", url: "https://www.dji.com/" },
+  {
+    src: "img/sponsors/thenorthface.svg",
     alt: "thenorthface",
     url: "https://www.thenorthface.com/",
   },
-  { src: "img/visa.svg", alt: "visa", url: "https://www.visa.com/" },
+  { src: "img/sponsors/visa.svg", alt: "visa", url: "https://www.visa.com/" },
 ];
 const getImageUrl = (path) => {
   return new URL(`../assets/${path}`, import.meta.url).href;

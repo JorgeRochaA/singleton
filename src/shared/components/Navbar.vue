@@ -1,11 +1,5 @@
 <script setup>
-import { ref } from "vue";
-
-// defineProps({
-//   msg: String,
-// })
-
-// const count = ref(0)
+import { onMounted } from "vue";
 
 const openNavbar = () => {
   const burger = document.getElementById("burger");
@@ -16,10 +10,29 @@ const openNavbar = () => {
     actions.classList.toggle("is-active");
   }
 };
+
+const checkScroll = (elementId) => {
+  const navbar = document.getElementById(elementId);
+
+  if (navbar) {
+    const isScrolled = window.scrollY > 0;
+    navbar.classList.toggle("is-scrolled", isScrolled);
+  }
+};
+
+const checkFirstScroll = () => {
+  checkScroll("navbar-mobile");
+  checkScroll("navbar-desktop");
+};
+
+onMounted(() => {
+  checkFirstScroll();
+  window.addEventListener("scroll", checkFirstScroll);
+});
 </script>
 
 <template>
-  <nav class="desktop">
+  <nav class="desktop" id="navbar-desktop">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100"
@@ -47,7 +60,7 @@ const openNavbar = () => {
       <div class="button signUp">Sign Up</div>
     </div>
   </nav>
-  <nav class="mobile">
+  <nav class="mobile" id="navbar-mobile">
     <svg
       xmlns="http://www.w3.org/2000/svg"
       width="100"
@@ -103,6 +116,11 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
+  z-index: 10;
+  &.is-scrolled {
+    box-shadow: 0 3px 5px 0 rgba(105, 75, 75, 0.1);
+  }
+
   &.desktop {
     display: flex;
     align-items: center;

@@ -1,14 +1,17 @@
 <script setup>
+import GetStarted from "./components/GetStarted.vue";
 import Navbar from "./shared/components/Navbar.vue";
 </script>
 
 <template>
   <div id="app">
     <Navbar />
+    <GetStarted />
   </div>
 </template>
 
 <style scoped lang="scss">
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -28,5 +31,6 @@ import Navbar from "./shared/components/Navbar.vue";
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   overflow-x: hidden;
+  background: white;
 }
 </style>

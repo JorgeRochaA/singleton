@@ -91,8 +91,6 @@ const openNavbar = () => {
 </template>
 
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
-
 @mixin equalProps {
   font-family: "Poppins", sans-serif;
   font-style: normal;

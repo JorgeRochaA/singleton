@@ -25,7 +25,7 @@ const goToWebsite = (websiteUrl) => {
       <img
         v-for="(sponsor, index) in sponsors"
         :key="index"
-        :src="`/src/assets/img/sponsor/${sponsor.name}.svg`"
+        :src="`src/assets/img/sponsor/${sponsor.name}.svg`"
         :alt="sponsor.name"
         v-on:click="goToWebsite(sponsor.url)"
       />

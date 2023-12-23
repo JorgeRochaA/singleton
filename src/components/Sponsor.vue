@@ -1,18 +1,38 @@
 <script setup>
+import { ref, watchEffect } from "vue";
+
 const sponsors = [
-  { name: "microsoft", url: "https://www.microsoft.com/" },
-  { name: "uber", url: "https://www.uber.com/" },
-  { name: "stripe", url: "https://www.stripe.com/" },
-  { name: "nike", url: "https://www.nike.com/" },
-  { name: "airbnb", url: "https://www.airbnb.com/" },
-  { name: "tesla", url: "https://www.tesla.com/" },
-  { name: "meta", url: "https://about.meta.com/" },
-  { name: "nasa", url: "https://www.nasa.gov/" },
-  { name: "netflix", url: "https://www.netflix.com/" },
-  { name: "dji", url: "https://www.dji.com/" },
-  { name: "thenorthface", url: "https://www.thenorthface.com/" },
-  { name: "visa", url: "https://www.visa.com/" },
+  {
+    src: "img/microsoft.svg",
+    alt: "microsoft",
+    url: "https://www.microsoft.com/",
+  },
+  { src: "img/uber.svg", alt: "uber", url: "https://www.uber.com/" },
+  { src: "img/stripe.svg", alt: "stripe", url: "https://www.stripe.com/" },
+  { src: "img/nike.svg", alt: "nike", url: "https://www.nike.com/" },
+  { src: "img/airbnb.svg", alt: "airbnb", url: "https://www.airbnb.com/" },
+  { src: "img/tesla.svg", alt: "tesla", url: "https://www.tesla.com/" },
+  { src: "img/meta.svg", alt: "meta", url: "https://about.meta.com/" },
+  { src: "img/nasa.svg", alt: "nasa", url: "https://www.nasa.gov/" },
+  { src: "img/netflix.svg", alt: "netflix", url: "https://www.netflix.com/" },
+  { src: "img/dji.svg", alt: "dji", url: "https://www.dji.com/" },
+  {
+    src: "img/thenorthface.svg",
+    alt: "thenorthface",
+    url: "https://www.thenorthface.com/",
+  },
+  { src: "img/visa.svg", alt: "visa", url: "https://www.visa.com/" },
 ];
+const sponsorImages = ref(Array(sponsors.length).fill(null));
+
+sponsors.forEach((sponsor, index) => {
+  watchEffect(async () => {
+    sponsorImages.value[index] = (
+      await import(/* @vite-ignore */ `../assets/${sponsor.src}`)
+    ).default;
+  });
+});
+
 const goToWebsite = (websiteUrl) => {
   window.open(websiteUrl, "_blank");
 };
@@ -25,8 +45,8 @@ const goToWebsite = (websiteUrl) => {
       <img
         v-for="(sponsor, index) in sponsors"
         :key="index"
-        :src="`src/assets/img/sponsor/${sponsor.name}.svg`"
-        :alt="sponsor.name"
+        :src="sponsorImages[index]"
+        :alt="sponsor.alt"
         v-on:click="goToWebsite(sponsor.url)"
       />
     </div>

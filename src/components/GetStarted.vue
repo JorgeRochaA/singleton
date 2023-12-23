@@ -20,6 +20,7 @@
   display: flex;
   margin-top: 103px;
   justify-content: flex-start;
+  max-width: 100vw;
   .data-container {
     text-align: start;
     margin-right: 200px;
@@ -32,6 +33,7 @@
       line-height: 78px;
       letter-spacing: -3.6px;
       max-width: 607px;
+      width: 90%;
     }
     p {
       color: #b8b8b8;
@@ -39,10 +41,12 @@
       font-weight: 400;
       line-height: 32px;
       letter-spacing: -0.4px;
-      width: 534px;
+      max-width: 534px;
+      width: 90%;
     }
     button {
-      width: 255px;
+      max-width: 255px;
+      width: 90%;
       height: 50px;
       flex-shrink: 0;
       border-radius: 5px;
@@ -65,7 +69,8 @@
   }
 
   img {
-    width: 458.268px;
+    max-width: 458.268px;
+    width: 90%;
     height: 445.166px;
   }
 }
@@ -83,12 +88,10 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    width: 100%;
     text-align: center;
     .data-container {
       text-align: center;
       margin-right: 0px;
-      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;

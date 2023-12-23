@@ -23,16 +23,9 @@ const sponsors = [
   },
   { src: "img/visa.svg", alt: "visa", url: "https://www.visa.com/" },
 ];
-const sponsorImages = ref(Array(sponsors.length).fill(null));
-
-sponsors.forEach((sponsor, index) => {
-  watchEffect(async () => {
-    sponsorImages.value[index] = (
-      await import(/* @vite-ignore */ `../assets/${sponsor.src}`)
-    ).default;
-  });
-});
-
+const getImageUrl = (path) => {
+  return new URL(`../assets/${path}`, import.meta.url).href;
+};
 const goToWebsite = (websiteUrl) => {
   window.open(websiteUrl, "_blank");
 };
@@ -45,7 +38,7 @@ const goToWebsite = (websiteUrl) => {
       <img
         v-for="(sponsor, index) in sponsors"
         :key="index"
-        :src="sponsorImages[index]"
+        :src="getImageUrl(sponsor.src)"
         :alt="sponsor.alt"
         v-on:click="goToWebsite(sponsor.url)"
       />

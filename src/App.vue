@@ -3,19 +3,28 @@ import Navbar from "./shared/components/Navbar.vue";
 </script>
 
 <template>
-  <div class="app">
+  <div id="app">
     <router-view />
   </div>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  scroll-behavior: smooth;
+  scroll-margin-top: 50px;
+  font-family: "Rubik", "sans-serif";
+
+  &::-webkit-scrollbar {
+    width: 0px;
+  }
 }
-.app {
-  min-height: 100vh;
-  width: 100vw;
+#app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
 }
 </style>

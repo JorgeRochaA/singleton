@@ -53,11 +53,11 @@ const goToWebsite = (websiteUrl) => {
     img {
       width: 98.78px;
       transition: 0.5s;
-
+      filter: grayscale(100%);
       &:hover {
         cursor: pointer;
         transform: scale(1.2);
-        filter: grayscale(100%);
+        filter: grayscale(0%);
       }
     }
   }

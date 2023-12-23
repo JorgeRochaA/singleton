@@ -71,7 +71,7 @@
   img {
     max-width: 458.268px;
     width: 90%;
-    height: 445.166px;
+    max-height: 445.166px;
   }
 }
 
@@ -89,13 +89,14 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    margin-top: 25px;
     .data-container {
       text-align: center;
       margin-right: 0px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-bottom: 5px;
+      margin-bottom: 50px;
       h1 {
         font-size: 60px;
         margin-bottom: 0;

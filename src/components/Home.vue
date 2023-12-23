@@ -18,5 +18,6 @@ import Navbar from "../shared/components/Navbar.vue";
   left: 0;
   display: flex;
   flex-direction: column;
+  background-color: red;
 }
 </style>

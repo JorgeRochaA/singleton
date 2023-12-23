@@ -110,7 +110,7 @@ nav {
     display: none;
   }
   height: 82px;
-  width: 100%;
+  width: 100vw;
   background-color: white;
   @include equalProps;
 

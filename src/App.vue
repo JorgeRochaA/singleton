@@ -1,12 +1,14 @@
 <script setup>
 import GetStarted from "./components/GetStarted.vue";
 import Navbar from "./shared/components/Navbar.vue";
+import Sponsor from "./components/Sponsor.vue";
 </script>
 
 <template>
   <div id="app">
     <Navbar />
     <GetStarted />
+    <Sponsor />
   </div>
 </template>
 
@@ -24,6 +26,7 @@ import Navbar from "./shared/components/Navbar.vue";
   top: 0;
   left: 0;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-width: 100%;

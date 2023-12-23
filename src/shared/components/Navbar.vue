@@ -101,6 +101,10 @@ const openNavbar = () => {
 }
 
 nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
   &.desktop {
     display: flex;
     align-items: center;
@@ -110,7 +114,6 @@ nav {
     display: none;
   }
   height: 82px;
-  width: 100vw;
   background-color: white;
   @include equalProps;
 
@@ -181,7 +184,6 @@ nav {
 
     &.mobile {
       display: flex;
-      position: relative;
       align-items: center;
       justify-content: space-around;
       svg {

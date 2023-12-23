@@ -4,7 +4,7 @@ import Navbar from "./shared/components/Navbar.vue";
 
 <template>
   <div id="app">
-    <router-view />
+    <Navbar />
   </div>
 </template>
 
@@ -13,18 +13,20 @@ import Navbar from "./shared/components/Navbar.vue";
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  scroll-behavior: smooth;
-  scroll-margin-top: 50px;
   font-family: "Rubik", "sans-serif";
-
-  &::-webkit-scrollbar {
-    width: 0px;
-  }
 }
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
+  overflow-x: hidden;
 }
 </style>

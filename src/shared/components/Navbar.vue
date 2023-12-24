@@ -156,7 +156,7 @@ nav {
   }
   .buttons {
     display: flex;
-    color: #783bff;
+    color: #4fd1d9;
     font-size: 14px;
     font-weight: 500;
     margin-right: 217px;
@@ -170,12 +170,12 @@ nav {
       border-radius: 5px;
       transition: 0.3s;
       &:hover {
-        background-color: #783bff;
+        background-color: #4fd1d9;
         color: white;
         cursor: pointer;
       }
       &.signUp {
-        border: 1px solid #783bff;
+        border: 1px solid #4fd1d9;
       }
     }
   }

@@ -54,7 +54,7 @@ import { getImageUrl } from "../utils/utils";
       border-radius: 5px;
       background: #f8f8f8;
       border-radius: 5px;
-      background: #6ac75a;
+      background: #4fd1d9;
       color: #fff;
       font-size: 16px;
       font-weight: 500;
@@ -63,8 +63,8 @@ import { getImageUrl } from "../utils/utils";
       transition: 0.5s;
       &:hover {
         background: #fff;
-        color: #6ac75a;
-        border-color: #6ac75a;
+        color: #4fd1d9;
+        border-color: #4fd1d9;
         transform: scale(1.1);
       }
     }

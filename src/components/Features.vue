@@ -114,7 +114,7 @@ const cardsData = [
     height: 50px;
     flex-shrink: 0;
     border-radius: 5px;
-    background: #6ac75a;
+    background: #4fd1d9;
     color: #fff;
     text-align: center;
     font-size: 16px;
@@ -126,8 +126,8 @@ const cardsData = [
     transition: 0.5s;
     &:hover {
       background: #fff;
-      color: #6ac75a;
-      border-color: #6ac75a;
+      color: #4fd1d9;
+      border-color: #4fd1d9;
       transform: scale(1.1);
     }
   }

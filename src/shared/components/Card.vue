@@ -28,7 +28,7 @@ defineProps({
         id="round"
       >
         <path
-          stroke="#783BFF"
+          stroke="#000"
           stroke-linecap="round"
           stroke-linejoin="round"
           stroke-width="2"
@@ -36,7 +36,7 @@ defineProps({
         />
       </svg>
       <svg
-        fill="#783BFF"
+        fill="#000"
         width="800px"
         height="800px"
         viewBox="0 0 15 15"

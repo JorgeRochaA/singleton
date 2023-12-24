@@ -2,6 +2,7 @@
 import GetStarted from "./components/GetStarted.vue";
 import Navbar from "./shared/components/Navbar.vue";
 import Sponsor from "./components/Sponsor.vue";
+import Features from "./components/Features.vue";
 </script>
 
 <template>
@@ -9,6 +10,7 @@ import Sponsor from "./components/Sponsor.vue";
     <Navbar />
     <GetStarted />
     <Sponsor />
+    <Features />
   </div>
 </template>
 
@@ -16,9 +18,8 @@ import Sponsor from "./components/Sponsor.vue";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap");
 * {
   margin: 0;
-  padding: 0;
+  padding: 0 !important;
   box-sizing: border-box;
-  font-family: "Rubik", "sans-serif";
 }
 
 #app {

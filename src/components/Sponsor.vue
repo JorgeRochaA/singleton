@@ -57,6 +57,7 @@ const goToWebsite = (websiteUrl) => {
         v-on:click="goToWebsite(sponsor.url)"
       />
     </div>
+    <div class="bar"></div>
   </div>
 </template>
 
@@ -68,7 +69,7 @@ const goToWebsite = (websiteUrl) => {
     height: 2px;
     flex-shrink: 0;
     background: #e1e4eb;
-    margin-bottom: 45px;
+    margin: 45px 0px;
   }
 
   .sponsors {

@@ -96,6 +96,7 @@ const cardsData = [
 
   h3 {
     width: 752px;
+    max-width: 90vw;
     color: #b8b8b8;
     text-align: center;
     font-family: Poppins;

@@ -82,7 +82,9 @@ const cardsData = [
     font-weight: 400;
     line-height: 78px; /* 121.875% */
     letter-spacing: -3px;
-    max-width: 775px;
+    width: 775px;
+    max-width: 80vw;
+    word-wrap: break-word;
   }
 
   .cards-container {

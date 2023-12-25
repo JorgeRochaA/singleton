@@ -220,6 +220,7 @@ const cardsData = [
         width: 225px;
         height: 50px;
         flex-shrink: 0;
+        margin-bottom: 41px;
         &:hover svg {
           fill: #4fd1d9;
         }

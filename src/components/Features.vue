@@ -163,6 +163,7 @@ const cardsData = [
 
   .explore-all-features-container {
     display: flex;
+    margin-bottom: 189px;
     img {
       height: fit-content;
       max-width: 90%;
@@ -259,7 +260,7 @@ const cardsData = [
       align-items: center;
       width: 80%;
       img {
-        height: fit-content;
+        height: 200px;
         max-width: 80%;
       }
       .explore-all-features-data {

@@ -3,6 +3,8 @@ import Card from "../shared/components/Card.vue";
 
 import { getImageUrl } from "../utils/utils";
 
+import { onMounted } from "vue";
+
 const cardsData = [
   {
     logo: "img/features/lock.svg",
@@ -10,6 +12,7 @@ const cardsData = [
     description:
       "It is a long established fact that a reader will be distracted by the readable content",
     alt: "lock",
+    background: "#dbc8ff",
   },
   {
     logo: "img/features/flame.svg",
@@ -17,6 +20,7 @@ const cardsData = [
     description:
       "It is a long established fact that a reader will be distracted by the readable content",
     alt: "flame",
+    background: "#ffe6df",
   },
   {
     logo: "img/features/puzzle.svg",
@@ -24,6 +28,7 @@ const cardsData = [
     description:
       "It is a long established fact that a reader will be distracted by the readable content",
     alt: "puzzle",
+    background: "#C4F1BD",
   },
   {
     logo: "img/features/team.svg",
@@ -31,6 +36,7 @@ const cardsData = [
     description:
       "It is a long established fact that a reader will be distracted by the readable content",
     alt: "team",
+    background: "#a4b9ff",
   },
   {
     logo: "img/features/person.svg",
@@ -38,6 +44,7 @@ const cardsData = [
     description:
       "It is a long established fact that a reader will be distracted by the readable content",
     alt: "person",
+    background: "#fff4c6",
   },
   {
     logo: "img/features/email.svg",
@@ -45,8 +52,30 @@ const cardsData = [
     description:
       "It is a long established fact that a reader will be distracted by the readable content",
     alt: "email",
+    background: "#ffe1c3",
   },
 ];
+
+const nextSlide = () => {
+  const carousel = document.querySelector(".carousel");
+  const card = document.querySelector(".features-data");
+  console.log(card);
+  const maxScroll = cardsData.length * 392;
+
+  if (carousel.scrollLeft + 392 >= maxScroll) {
+    carousel.scrollLeft = 0;
+  } else {
+    carousel.style.scrollBehavior = "smooth";
+    carousel.scrollLeft += 392;
+    setTimeout(() => {
+      carousel.style.scrollBehavior = "auto";
+    }, 500);
+  }
+};
+
+onMounted(() => {
+  setInterval(nextSlide, 2000);
+});
 </script>
 <template>
   <div class="features-container">
@@ -67,13 +96,25 @@ const cardsData = [
     </h3>
     <button>Explore All Features</button>
     <div class="explore-all-features-container">
-      <img :src="getImageUrl('img/features/tennisplayer.svg')" alt="" />
+      <img
+        :src="getImageUrl('img/features/tennisplayer.svg')"
+        alt="tennis player"
+      />
       <div class="explore-all-features-data">
-        <div class="features-data">
-          <div class="rectangle">
-            <img src="../assets/img/features/flame.svg" alt="" />
+        <div class="carousel">
+          <div
+            class="features-data"
+            v-for="(card, index) in cardsData"
+            :key="index"
+          >
+            <div
+              class="rectangle"
+              :style="{ 'background-color': card.background }"
+            >
+              <img :src="getImageUrl(card.logo)" :alt="card.alt" />
+            </div>
+            <p>{{ card.title }}</p>
           </div>
-          <p>API Reference</p>
         </div>
         <h3>We believe in helping people pay attention to what matters</h3>
         <button>
@@ -84,7 +125,6 @@ const cardsData = [
             height="800px"
             viewBox="0 0 15 15"
             xmlns="http://www.w3.org/2000/svg"
-            id="arrow"
           >
             <path
               d="M8.29289 2.29289C8.68342 1.90237 9.31658 1.90237 9.70711 2.29289L14.2071 6.79289C14.5976 7.18342 14.5976 7.81658 14.2071 8.20711L9.70711 12.7071C9.31658 13.0976 8.68342 13.0976 8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L11 8.5H1.5C0.947715 8.5 0.5 8.05228 0.5 7.5C0.5 6.94772 0.947715 6.5 1.5 6.5H11L8.29289 3.70711C7.90237 3.31658 7.90237 2.68342 8.29289 2.29289Z"
@@ -172,34 +212,38 @@ const cardsData = [
       display: flex;
       flex-direction: column;
       margin-left: 93.16px;
-      .features-data {
+      .carousel {
         display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        .rectangle {
-          display: grid;
-          place-items: center;
-          width: 65px;
-          height: 65px;
-          flex-shrink: 0;
-          border-radius: 22px;
-          background: #ffe6df;
-          img {
-            width: 32.5px;
-            height: 32.5px;
+        width: 392px;
+        overflow: hidden;
+        .features-data {
+          display: flex;
+          align-items: center;
+          justify-content: flex-start;
+          .rectangle {
+            display: grid;
+            place-items: center;
+            width: 65px;
+            height: 65px;
             flex-shrink: 0;
+            border-radius: 22px;
+            img {
+              width: 32.5px;
+              height: 32.5px;
+              flex-shrink: 0;
+            }
           }
-        }
-        p {
-          width: 301px;
-          color: #111;
-          font-size: 24px;
-          font-style: normal;
-          font-weight: 400;
-          line-height: 45px; /* 187.5% */
-          letter-spacing: -0.8px;
-          text-align: left;
-          margin-left: 26px;
+          p {
+            width: 301px;
+            color: #111;
+            font-size: 24px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 45px; /* 187.5% */
+            letter-spacing: -0.8px;
+            text-align: left;
+            margin-left: 26px;
+          }
         }
       }
 
@@ -267,13 +311,13 @@ const cardsData = [
         align-items: center;
         width: 100%;
         margin-left: 0;
-        .features-data {
-          justify-content: center;
-          padding: 25px;
-          gap: 25px;
-          p {
-            width: fit-content;
-            margin: 0;
+
+        .carousel {
+          max-width: 95%;
+          .features-data {
+            p {
+              font-size: 22px;
+            }
           }
         }
 

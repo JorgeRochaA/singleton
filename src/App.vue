@@ -5,6 +5,7 @@ import Sponsor from "./components/Sponsor.vue";
 import Features from "./components/Features.vue";
 import EarnRewards from "./components/EarnRewards.vue";
 import Plans from "./components/Plans.vue";
+import Footer from "./shared/components/Footer.vue";
 </script>
 
 <template>
@@ -15,6 +16,7 @@ import Plans from "./components/Plans.vue";
     <Features />
     <EarnRewards />
     <Plans />
+    <Footer />
   </div>
 </template>
 

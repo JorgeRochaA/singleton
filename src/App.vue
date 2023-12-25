@@ -4,6 +4,7 @@ import Navbar from "./shared/components/Navbar.vue";
 import Sponsor from "./components/Sponsor.vue";
 import Features from "./components/Features.vue";
 import EarnRewards from "./components/EarnRewards.vue";
+import Plans from "./components/Plans.vue";
 </script>
 
 <template>
@@ -13,6 +14,7 @@ import EarnRewards from "./components/EarnRewards.vue";
     <Sponsor />
     <Features />
     <EarnRewards />
+    <Plans />
   </div>
 </template>
 

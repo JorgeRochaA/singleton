@@ -260,8 +260,7 @@ const cardsData = [
       align-items: center;
       width: 80%;
       img {
-        height: 200px;
-        max-width: 80%;
+        width: 65vw;
       }
       .explore-all-features-data {
         flex-direction: column;

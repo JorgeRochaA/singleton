@@ -3,6 +3,7 @@ import GetStarted from "./components/GetStarted.vue";
 import Navbar from "./shared/components/Navbar.vue";
 import Sponsor from "./components/Sponsor.vue";
 import Features from "./components/Features.vue";
+import EarnRewards from "./components/EarnRewards.vue";
 </script>
 
 <template>
@@ -11,6 +12,7 @@ import Features from "./components/Features.vue";
     <GetStarted />
     <Sponsor />
     <Features />
+    <EarnRewards />
   </div>
 </template>
 

@@ -5,6 +5,9 @@ import { getImageUrl } from "../utils/utils";
 
 import { onMounted } from "vue";
 
+import { VueMarqueeSlider } from "vue3-marquee-slider";
+import "../../node_modules/vue3-marquee-slider/dist/style.css";
+
 const cardsData = [
   {
     logo: "img/features/lock.svg",
@@ -74,7 +77,7 @@ const nextSlide = () => {
 };
 
 onMounted(() => {
-  setInterval(nextSlide, 2000);
+  // setInterval(nextSlide, 2000);
 });
 </script>
 <template>
@@ -101,20 +104,27 @@ onMounted(() => {
         alt="tennis player"
       />
       <div class="explore-all-features-data">
-        <div class="carousel">
-          <div
-            class="features-data"
-            v-for="(card, index) in cardsData"
-            :key="index"
+        <div class="slider-container">
+          <vue-marquee-slider
+            id="marquee-slider-cards"
+            :space="25"
+            :speed="35000"
+            :width="310"
           >
             <div
-              class="rectangle"
-              :style="{ 'background-color': card.background }"
+              class="features-data"
+              v-for="(card, index) in cardsData"
+              :key="index"
             >
-              <img :src="getImageUrl(card.logo)" :alt="card.alt" />
+              <div
+                class="rectangle"
+                :style="{ 'background-color': card.background }"
+              >
+                <img :src="getImageUrl(card.logo)" :alt="card.alt" />
+              </div>
+              <p>{{ card.title }}</p>
             </div>
-            <p>{{ card.title }}</p>
-          </div>
+          </vue-marquee-slider>
         </div>
         <h3>We believe in helping people pay attention to what matters</h3>
         <button>
@@ -212,37 +222,37 @@ onMounted(() => {
       display: flex;
       flex-direction: column;
       margin-left: 93.16px;
-      .carousel {
-        display: flex;
-        width: 392px;
-        overflow: hidden;
-        .features-data {
-          display: flex;
-          align-items: center;
-          justify-content: flex-start;
-          .rectangle {
-            display: grid;
-            place-items: center;
-            width: 65px;
-            height: 65px;
-            flex-shrink: 0;
-            border-radius: 22px;
-            img {
-              width: 32.5px;
-              height: 32.5px;
+      .slider-container {
+        width: 485px;
+        #marquee-slider-cards {
+          .features-data {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            .rectangle {
+              display: grid;
+              place-items: center;
+              width: 65px;
+              height: 65px;
               flex-shrink: 0;
+              border-radius: 22px;
+              img {
+                width: 32.5px;
+                height: 32.5px;
+                flex-shrink: 0;
+              }
             }
-          }
-          p {
-            width: 301px;
-            color: #111;
-            font-size: 24px;
-            font-style: normal;
-            font-weight: 400;
-            line-height: 45px; /* 187.5% */
-            letter-spacing: -0.8px;
-            text-align: left;
-            margin-left: 26px;
+            p {
+              width: 301px;
+              color: #111;
+              font-size: 24px;
+              font-style: normal;
+              font-weight: 400;
+              line-height: 45px; /* 187.5% */
+              letter-spacing: -0.8px;
+              text-align: left;
+              margin-left: 26px;
+            }
           }
         }
       }
@@ -312,8 +322,9 @@ onMounted(() => {
         width: 100%;
         margin-left: 0;
 
-        .carousel {
+        .slider-container {
           max-width: 95%;
+          width: 100vw !important;
           .features-data {
             p {
               font-size: 22px;
@@ -323,7 +334,7 @@ onMounted(() => {
 
         h3 {
           text-align: center;
-          width: 85%;
+          width: 75%;
         }
       }
     }

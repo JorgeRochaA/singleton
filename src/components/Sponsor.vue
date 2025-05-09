@@ -1,4 +1,7 @@
 <script setup>
+import { VueMarqueeSlider } from "vue3-marquee-slider";
+import "../../node_modules/vue3-marquee-slider/dist/style.css";
+
 const sponsors = [
   {
     src: "img/sponsors/microsoft.svg",
@@ -48,7 +51,7 @@ const goToWebsite = (websiteUrl) => {
 <template>
   <div class="sponsor-container">
     <div class="bar"></div>
-    <div class="sponsors">
+    <!-- <div class="sponsors">
       <img
         v-for="(sponsor, index) in sponsors"
         :key="index"
@@ -56,7 +59,15 @@ const goToWebsite = (websiteUrl) => {
         :alt="sponsor.alt"
         v-on:click="goToWebsite(sponsor.url)"
       />
-    </div>
+    </div> -->
+    <vue-marquee-slider id="marquee-slider" :speed="35000" :width="100">
+      <img
+        v-for="(sponsor, index) in sponsors"
+        :key="index"
+        :src="getImageUrl(sponsor.src)"
+        :alt="sponsor.alt"
+      />
+    </vue-marquee-slider>
     <div class="bar"></div>
   </div>
 </template>
@@ -65,6 +76,9 @@ const goToWebsite = (websiteUrl) => {
 .sponsor-container {
   margin-top: 119px;
   width: 69%;
+  #marquee-slider {
+    max-width: 100vw;
+  }
   .bar {
     height: 2px;
     flex-shrink: 0;

@@ -1,25 +1,41 @@
->
 <script setup>
+import { ref } from 'vue';
+import NumberFlow from '@number-flow/vue';
+
 //set props
 const props = defineProps({
-  tittle: String,
-  price: Number,
-  interval: String,
+  title: String,
+  freeTrial: Boolean,
+  pricing: Object,
   features: Array[String],
   button: String,
 });
+
+const selectedInterval = ref("monthly");
+
+function changePricing(){
+if(props.freeTrial) return;
+
+ selectedInterval.value =
+    selectedInterval.value === "monthly"
+      ? "yearly"
+      : "monthly";
+}
 </script>
 <template>
   <div class="card-container">
-    <h3>{{ tittle }}</h3>
+    <h3>{{ title }}</h3>
     <div class="price-container">
-      <span class="price">{{ price > 0 ? `$${price}` : "Free" }}</span>
-      <span class="interval">{{ interval }}</span>
+     <NumberFlow
+	:value="props.pricing[selectedInterval].price"
+	:format="{ style: 'currency', currency: 'USD', trailingZeroDisplay: 'stripIfInteger' }"
+	:suffix="props.pricing[selectedInterval].interval"
+/>
     </div>
     <div class="features-container">
       <a v-for="feature in features" :key="feature">{{ feature }}</a>
     </div>
-    <button class="button">{{ button }}</button>
+    <button class="button" v-on:click="changePricing()">{{ button }}</button>
   </div>
 </template>
 <style scoped lang="scss">
@@ -27,7 +43,7 @@ const props = defineProps({
   color: black;
   width: 350px;
   max-width: 90vw;
-  height: 430px;
+  min-height: 430px;
   flex-shrink: 0;
   border-radius: 10px;
   border: 1px solid #e1e4eb;
@@ -41,7 +57,8 @@ const props = defineProps({
     transform: scale(1.1);
   }
 
-  &:hover .price-container .price,
+  &:hover .price-container number-flow-vue::part(left),
+  &:hover .price-container number-flow-vue::part(number),
   &:hover .features-container a {
     color: white;
   }
@@ -65,8 +82,9 @@ const props = defineProps({
 
   .price-container {
     margin-top: 21px;
-    .price {
-      color: #111;
+
+        number-flow-vue::part(left),number-flow-vue::part(number) {
+ color: #111;
       text-align: center;
       font-size: 48px;
       font-style: normal;
@@ -74,18 +92,21 @@ const props = defineProps({
       line-height: 45px; /* 93.75% */
       letter-spacing: -1.6px;
       transition: 0.5s;
-    }
-    .interval {
-      color: #b8b8b8;
+}
+
+    number-flow-vue::part(suffix) {
+ color: #b8b8b8;
       text-align: center;
       font-size: 22px;
       font-style: normal;
       font-weight: 400;
       line-height: 32px; /* 145.455% */
       letter-spacing: -0.4px;
-    }
+}
+
   }
   .features-container {
+    min-height: 258px;
     list-style: none;
     margin-top: 45px;
     margin-bottom: 35px;
@@ -105,6 +126,7 @@ const props = defineProps({
     }
   }
   button {
+    margin-bottom: 25px;
     width: 290px;
     height: 50px;
     flex-shrink: 0;

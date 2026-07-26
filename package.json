@@ -9,6 +9,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@number-flow/vue": "^0.5.2",
     "sass": "^1.69.5",
     "vue": "^3.3.11",
     "vue3-marquee-slider": "^1.0.5"

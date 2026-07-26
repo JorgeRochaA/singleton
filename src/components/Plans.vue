@@ -3,38 +3,153 @@
 import PlanCard from "../shared/components/PlanCard.vue";
 const planCards = [
   {
-    tittle: "Starter",
-    price: 0,
-    interval: "",
+    title: "Starter",
+    freeTrial: true,
+    pricing: {
+      monthly: {
+        price: 0,
+        interval: "/month"
+      },
+      yearly: {
+        price: 0,
+        interval: "/year"
+      }
+    },
     features: [
       "1 Non-Commercial Site",
       "100 GB System Storage",
       "Singleton Branding",
+      "Community Support",
+      "-", 
+      "-"
     ],
     button: "Select Plan",
   },
+
+
   {
-    tittle: "Singleton Plus",
-    price: 39,
-    interval: "/month",
+    title: "Basic",
+    freeTrial: false,
+    pricing: {
+      monthly: {
+        price: 7,
+        interval: "/month"
+      },
+      yearly: {
+        price: 70,
+        interval: "/year"
+      }
+    },
     features: [
-      "10 Non-Commercial Site",
+      "3 Commercial Sites",
       "500 GB System Storage",
-      "Custom Branding",
+      "Remove Singleton Branding",
+      "Basic Analytics",
+      "Email Support",
+      "-",
     ],
     button: "Select Plan",
   },
+
+
   {
-    tittle: "Singleton Pro",
-    price: 99,
-    interval: "/month",
+    title: "Professional",
+    freeTrial: false,
+    pricing: {
+      monthly: {
+        price: 17,
+        interval: "/month"
+      },
+      yearly: {
+        price: 170,
+        interval: "/year"
+      }
+    },
     features: [
-      "30 Non-Commercial Site",
-      "1TB System Storage",
-      "Custom Branding",
+      "10 Commercial Sites",
+      "2 TB System Storage",
+      "Advanced Analytics",
+      "Custom Domains",
+      "Priority Support",
+      "-",
     ],
     button: "Select Plan",
   },
+
+
+  {
+    title: "Business",
+    freeTrial: false,
+    pricing: {
+      monthly: {
+        price: 39,
+        interval: "/month"
+      },
+      yearly: {
+        price: 390,
+        interval: "/year"
+      }
+    },
+    features: [
+      "50 Commercial Sites",
+      "10 TB System Storage",
+      "Team Collaboration",
+      "API Access",
+      "Advanced Security",
+      "Priority Support"
+    ],
+    button: "Select Plan",
+  },
+
+
+  {
+    title: "Enterprise",
+    freeTrial: false,
+    pricing: {
+      monthly: {
+        price: 89,
+        interval: "/month"
+      },
+      yearly: {
+        price: 890,
+        interval: "/year"
+      }
+    },
+    features: [
+      "Unlimited Sites",
+      "50 TB System Storage",
+      "SSO Authentication",
+      "Custom Integrations",
+      "Advanced Security",
+      "Dedicated Support"
+    ],
+    button: "Select Plan",
+  },
+
+
+  {
+    title: "Ultimate",
+    freeTrial: false,
+    pricing: {
+      monthly: {
+        price: 179,
+        interval: "/month"
+      },
+      yearly: {
+        price: 1790,
+        interval: "/year"
+      }
+    },
+    features: [
+      "Unlimited Everything",
+      "Unlimited Storage",
+      "White Label Platform",
+      "Advanced API Access",
+      "Dedicated Account Manager",
+      "24/7 Premium Support"
+    ],
+    button: "Select Plan",
+  }
 ];
 </script>
 <template>
@@ -43,10 +158,10 @@ const planCards = [
     <div class="plan-cards-container">
       <PlanCard
         v-for="plan in planCards"
-        :key="plan.tittle"
-        :tittle="plan.tittle"
-        :price="plan.price"
-        :interval="plan.interval"
+        :key="plan.title"
+        :title="plan.title"
+        :freeTrial="plan.freeTrial"
+        :pricing="plan.pricing"
         :features="plan.features"
         :button="plan.button"
       />
@@ -75,7 +190,7 @@ const planCards = [
   .plan-cards-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 27px;
+    gap: 45px 27px;
     margin-bottom: 48px;
   }
 

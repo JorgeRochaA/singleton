@@ -1,6 +1,7 @@
 <script setup>
 import { VueMarqueeSlider } from "vue3-marquee-slider";
 import "../../node_modules/vue3-marquee-slider/dist/style.css";
+import {getImageUrl} from "../utils/utils"
 
 const sponsors = [
   {
@@ -40,9 +41,7 @@ const sponsors = [
   },
   { src: "img/sponsors/visa.svg", alt: "visa", url: "https://www.visa.com/" },
 ];
-const getImageUrl = (path) => {
-  return new URL(`../assets/${path}`, import.meta.url).href;
-};
+
 const goToWebsite = (websiteUrl) => {
   window.open(websiteUrl, "_blank");
 };
@@ -51,15 +50,6 @@ const goToWebsite = (websiteUrl) => {
 <template>
   <div class="sponsor-container">
     <div class="bar"></div>
-    <!-- <div class="sponsors">
-      <img
-        v-for="(sponsor, index) in sponsors"
-        :key="index"
-        :src="getImageUrl(sponsor.src)"
-        :alt="sponsor.alt"
-        v-on:click="goToWebsite(sponsor.url)"
-      />
-    </div> -->
     <vue-marquee-slider id="marquee-slider" :speed="35000" :width="100">
       <img
         v-for="(sponsor, index) in sponsors"

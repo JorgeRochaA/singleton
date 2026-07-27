@@ -76,9 +76,6 @@ const nextSlide = () => {
   }
 };
 
-onMounted(() => {
-  // setInterval(nextSlide, 2000);
-});
 </script>
 <template>
   <div class="features-container">

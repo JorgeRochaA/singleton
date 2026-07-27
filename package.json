@@ -16,7 +16,7 @@
     "vue3-marquee-slider": "^1.0.5"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.5.2",
-    "vite": "^5.0.8"
+    "@vitejs/plugin-vue": "^6.0.8",
+    "vite": "^8.1.5"
   }
 }

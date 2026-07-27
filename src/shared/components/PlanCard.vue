@@ -59,7 +59,7 @@ if(props.freeTrial) return;
   &:hover {
     background: #F8F8F8;
     cursor: pointer;
-    // transform: scale(1.1);
+    transform: scale(1.1);
   }
 
   &:hover button {

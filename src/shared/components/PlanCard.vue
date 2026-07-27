@@ -25,6 +25,11 @@ if(props.freeTrial) return;
 <template>
   <div class="card-container">
     <h3>{{ title }}</h3>
+      <div v-if="!props.freeTrial">
+          <Vueform>
+    <ToggleElement name="toggle" :labels="{ on: 'Yearly', off: 'Monthly' }" @change="changePricing()" class="toggle-price"></ToggleElement>
+  </Vueform>
+      </div>
     <div class="price-container">
      <NumberFlow
 	:value="props.pricing[selectedInterval].price"
@@ -35,7 +40,7 @@ if(props.freeTrial) return;
     <div class="features-container">
       <a v-for="feature in features" :key="feature">{{ feature }}</a>
     </div>
-    <button class="button" v-on:click="changePricing()">{{ button }}</button>
+    <button class="button">{{ button }}</button>
   </div>
 </template>
 <style scoped lang="scss">
@@ -52,15 +57,9 @@ if(props.freeTrial) return;
   align-items: center;
   transition: 0.5s;
   &:hover {
-    background: #111;
+    background: #F8F8F8;
     cursor: pointer;
-    transform: scale(1.1);
-  }
-
-  &:hover .price-container number-flow-vue::part(left),
-  &:hover .price-container number-flow-vue::part(number),
-  &:hover .features-container a {
-    color: white;
+    // transform: scale(1.1);
   }
 
   &:hover button {
@@ -79,6 +78,37 @@ if(props.freeTrial) return;
     letter-spacing: -0.4px;
     margin-top: 32px;
   }
+
+:deep(.toggle-price .vf-toggle) {
+  width: 110px;
+  height: 36px;
+}
+
+:deep(.toggle-price .vf-toggle-handle) {
+  width: 28px;
+  height: 28px;
+   transition:
+    transform .3s cubic-bezier(.22,1,.36,1),
+    top .3s cubic-bezier(.22,1,.36,1),
+    left .3s cubic-bezier(.22,1,.36,1);
+}
+
+:deep(.toggle-price .vf-toggle-off .vf-toggle-handle) {
+    top: 50%;
+    left: 5%;
+  transform: translateY(-50%);
+}
+
+:deep(.toggle-price .vf-toggle-on .vf-toggle-handle) {
+top: 13%;
+transform: translateX(-125%);
+}
+
+:deep(.toggle-price .vf-toggle-label) {
+  width: 70%;
+  font-size: 14px;
+  font-weight: 600;
+}
 
   .price-container {
     margin-top: 21px;
